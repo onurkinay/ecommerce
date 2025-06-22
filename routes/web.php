@@ -8,11 +8,14 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::resource('dashboard', AdminController::class)->only([
-        'index',
-    ]);
 
     Route::get('login', [
         AdminController::class, 'create',
     ])->name('admin.login');
+
+    Route::group(['middleware' => ['admin']], function () {
+        Route::resource('dashboard', AdminController::class)->only([
+            'index',
+        ]);
+    });
 });
