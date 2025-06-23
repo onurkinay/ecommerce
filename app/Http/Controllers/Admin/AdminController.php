@@ -40,9 +40,7 @@ class AdminController extends Controller
         )) {
             return redirect('admin/dashboard');
         } else {
-            return redirect()->back()->withErrors([
-                'email' => 'Invalid credentials',
-            ]);
+            return redirect()->back()->with('error_message', 'Invalid credentials');
         }
 
     }
@@ -76,6 +74,8 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        //
+        Auth::guard('admin')->logout();
+
+        return redirect()->route('admin.login');
     }
 }

@@ -26,5 +26,6 @@ Route::prefix('admin')->group(function () {
         Route::get('logout', [
             AdminController::class, 'destroy',
         ])->name('admin.logout');
+
     });
 });
