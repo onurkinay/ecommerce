@@ -65,7 +65,8 @@
                     @csrf
                     <div class="input-group mb-1">
                         <div class="form-floating">
-                            <input id="loginEmail" type="email" class="form-control" value=""
+                            <input id="loginEmail" type="email" class="form-control"
+                                @if (isset($_COOKIE['email'])) value="{{ $_COOKIE['email'] }}" @endif
                                 placeholder="Email" name="email" />
                             <label for="loginEmail">Email</label>
                         </div>
@@ -74,6 +75,7 @@
                     <div class="input-group mb-1">
                         <div class="form-floating">
                             <input id="loginPassword" type="password" class="form-control" placeholder=""
+                                @if (isset($_COOKIE['password'])) value="{{ $_COOKIE['password'] }}" @endif
                                 name="password" />
                             <label for="loginPassword">Password</label>
                         </div>
@@ -83,8 +85,8 @@
                     <div class="row">
                         <div class="col-8 d-inline-flex align-items-center">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                                    name="remember" />
+                                <input class="form-check-input" type="checkbox" id="flexCheckDefault"
+                                    @if (isset($_COOKIE['remember'])) checked @endif name="remember" />
                                 <label class="form-check-label" for="remember"> Remember Me </label>
                             </div>
                         </div>
