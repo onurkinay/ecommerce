@@ -32,13 +32,10 @@ class AdminController extends Controller
     public function store(LoginRequest $request)
     {
         $data = $request->all();
+        $service = new \App\Services\Admin\AdminService;
+        $loginStatus = $service->login($data);
 
-        if (Auth::guard('admin')->attempt(
-            [
-                'email' => $data['email'],
-                'password' => $data['password'],
-            ]
-        )) {
+        if ($loginStatus) {
             return redirect('admin/dashboard');
         } else {
             return redirect()->back()->with('error_message', 'Invalid credentials');

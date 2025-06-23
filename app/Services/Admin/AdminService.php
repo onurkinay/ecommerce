@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Services\Admin;
+
+use Illuminate\Support\Facades\Auth;
+
+class AdminService
+{
+    public function login($data)
+    {
+        if (Auth::guard('admin')->attempt(
+            [
+                'email' => $data['email'],
+                'password' => $data['password'],
+            ]
+        )) {
+            return 1;
+        }
+
+        return 0;
+    }
+}

@@ -83,8 +83,9 @@
                     <div class="row">
                         <div class="col-8 d-inline-flex align-items-center">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                                    name="remember" />
+                                <label class="form-check-label" for="remember"> Remember Me </label>
                             </div>
                         </div>
                         <!-- /.col -->
