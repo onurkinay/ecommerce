@@ -52,6 +52,15 @@
                         </button>
                     </div>
                 @endif
+
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <strong> Error: </strong> {!! $error !!}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+
+                        </button>
+                    </div>
+                @endforeach
                 <form action="{{ route('admin.login.request') }}" method="post">
                     @csrf
                     <div class="input-group mb-1">
